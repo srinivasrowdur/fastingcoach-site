@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Fasting Coach is a calm intermittent fasting app for iPhone and Android with an AI coach that runs on your device. Private by default, works offline.">
+<meta name="description" content="Fasting Coach is a calm intermittent fasting app for iPhone and Android with an AI coach that runs on your device. Your data never leaves your phone, and it works offline.">
 <meta property="og:title" content="Fasting Coach">
-<meta property="og:description" content="A calmer way to fast. An AI coach on your phone, private by default.">
+<meta property="og:description" content="A calmer way to fast. An AI coach on your phone. Your data never leaves it.">
 <meta property="og:type" content="website">
 <!-- Smart App Banner: fill in the numeric App Store id once the app is listed, then uncomment.
 <meta name="apple-itunes-app" content="app-id=0000000000">
@@ -216,7 +216,11 @@ nav .links a{text-decoration:none;color:var(--ink-muted)}
 .hero-phone{display:flex;flex-direction:column;align-items:center;gap:16px}
 .pairwrap{display:flex;flex-direction:column;align-items:center;gap:16px}
 .pairwrap>.pair{align-self:stretch}
-[data-plat=android] .ios-only,[data-plat=ios] .android-only{display:none}
+.shots{display:grid;place-items:center}.shots>*{grid-area:1/1}
+[data-plat=android] .ios-only,[data-plat=ios] .android-only{visibility:hidden}
+/* Android shots are 9:16; wider frames give them the same height as the iPhone ones */
+.phone.android-only{width:366px}.pair.android-only .phone{width:305px}
+@media (max-width:520px){.pair.android-only .phone{width:269px}}
 </style>
 
 </head>
@@ -232,7 +236,8 @@ nav .links a{text-decoration:none;color:var(--ink-muted)}
 <p>This policy covers Fasting Coach for iPhone and for Android. Both apps are designed so that your data never leaves your phone. This policy explains what the app handles and why. The short version: <strong>we collect nothing.</strong></p>
 <h3>What the app stores — on your device only</h3>
 <ul><li><strong>Fasting activity</strong>: your goals, fast start/end times, streaks, and history.</li><li><strong>Coaching data</strong>: your preferences (coaching style, quiet hours, message limits), the coach's notes about what kind of support works for you, and a log of the coaching decisions the app made.</li><li><strong>Conversations</strong>: chats with the coach are processed on-device and are not retained as transcripts beyond the active session.</li></ul>
-<p>All of this lives in local storage on your phone. It is never uploaded, synced, or shared. Deleting the app deletes it. "Start over" in Profile also erases it.</p>
+<p>All of this lives in local storage on your phone. Fasting Coach never uploads, syncs, or shares it. Deleting the app deletes it. "Start over" in Profile also erases it.</p>
+<p>If you use iCloud Backup on iPhone or Google device backup on Android, your phone's backup may include the app's data, encrypted, under your own account. We never have access to it.</p>
 <h3>Health data</h3>
 <p>Health integration is off until you turn it on. If you enable it, Fasting Coach reads steps, active energy, sleep, and workouts <strong>on your device</strong>, read-only, solely so coaching can reflect your day:</p>
 <ul><li><strong>iPhone</strong>: read from Apple Health. You can revoke access anytime in Settings → Privacy &amp; Security → Health.</li><li><strong>Android</strong>: read from Health Connect. You can revoke access anytime by switching off Health Connect in Profile, or in Health Connect → App permissions → Fasting Coach.</li></ul>

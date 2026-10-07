@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Fasting Coach is a calm intermittent fasting app for iPhone and Android with an AI coach that runs on your device. Private by default, works offline.">
+<meta name="description" content="Fasting Coach is a calm intermittent fasting app for iPhone and Android with an AI coach that runs on your device. Your data never leaves your phone, and it works offline.">
 <meta property="og:title" content="Fasting Coach">
-<meta property="og:description" content="A calmer way to fast. An AI coach on your phone, private by default.">
+<meta property="og:description" content="A calmer way to fast. An AI coach on your phone. Your data never leaves it.">
 <meta property="og:type" content="website">
 <!-- Smart App Banner: fill in the numeric App Store id once the app is listed, then uncomment.
 <meta name="apple-itunes-app" content="app-id=0000000000">
@@ -216,7 +216,11 @@ nav .links a{text-decoration:none;color:var(--ink-muted)}
 .hero-phone{display:flex;flex-direction:column;align-items:center;gap:16px}
 .pairwrap{display:flex;flex-direction:column;align-items:center;gap:16px}
 .pairwrap>.pair{align-self:stretch}
-[data-plat=android] .ios-only,[data-plat=ios] .android-only{display:none}
+.shots{display:grid;place-items:center}.shots>*{grid-area:1/1}
+[data-plat=android] .ios-only,[data-plat=ios] .android-only{visibility:hidden}
+/* Android shots are 9:16; wider frames give them the same height as the iPhone ones */
+.phone.android-only{width:366px}.pair.android-only .phone{width:305px}
+@media (max-width:520px){.pair.android-only .phone{width:269px}}
 </style>
 
 </head>
