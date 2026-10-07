@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Fasting Coach is a calm intermittent fasting app for iPhone with an AI coach that runs on your device. Private by default, works offline.">
+<meta name="description" content="Fasting Coach is a calm intermittent fasting app for iPhone and Android with an AI coach that runs on your device. Private by default, works offline.">
 <meta property="og:title" content="Fasting Coach">
-<meta property="og:description" content="A calmer way to fast. An AI coach on your iPhone, private by default.">
+<meta property="og:description" content="A calmer way to fast. An AI coach on your phone, private by default.">
 <meta property="og:type" content="website">
 <!-- Smart App Banner: fill in the numeric App Store id once the app is listed, then uncomment.
 <meta name="apple-itunes-app" content="app-id=0000000000">
@@ -207,39 +207,54 @@ nav .links a{text-decoration:none;color:var(--ink-muted)}
 .facts b{font-size:16px;font-weight:600;color:var(--ink)}
 .facts span{font-size:14px;color:var(--ink-muted)}
 .copy .small{font-size:13px;color:var(--ink-subtle);max-width:44ch}
+
+.stores{display:flex;flex-wrap:wrap;gap:12px;justify-content:inherit}
+.close .stores{justify-content:center}
+.plat{display:inline-flex;gap:4px;padding:4px;border-radius:999px;background:var(--card);border:1px solid var(--hairline)}
+.plat button{border:0;background:none;color:var(--ink-muted);border-radius:999px;padding:6px 14px;font:500 13px var(--sans);cursor:pointer}
+.plat button[aria-pressed=true]{background:var(--primary);color:var(--on-primary)}
+.hero-phone{display:flex;flex-direction:column;align-items:center;gap:16px}
+.pairwrap{display:flex;flex-direction:column;align-items:center;gap:16px}
+.pairwrap>.pair{align-self:stretch}
+[data-plat=android] .ios-only,[data-plat=ios] .android-only{display:none}
 </style>
 
 </head>
 <body>
 <nav><div class="wrap">
   <a class="brand" href="index.html"><img src="data:image/webp;base64,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" alt="">Fasting Coach</a>
-  <div class="links"><a class="nav-hide" href="support.html">Support</a><a class="nav-hide" href="privacy.html">Privacy</a><a class="cta" href="https://apps.apple.com/app/id0000000000" target="_blank" rel="noopener">Get the app</a></div>
+  <div class="links"><a class="nav-hide" href="support.html">Support</a><a class="nav-hide" href="privacy.html">Privacy</a><a class="cta" href="index.html#top">Get the app</a></div>
 </div></nav>
 <section class="legal" id="privacy">
   <div class="wrap">
     <div class="sec-head"><p class="over">Privacy policy</p><h2>We collect nothing.</h2></div>
-    <div class="prose"><p><strong>Effective date: 28 September 2026</strong></p>
-<p>Fasting Coach is designed so that your data never leaves your iPhone. This policy explains what the app handles and why. The short version: <strong>we collect nothing.</strong></p>
+    <div class="prose"><p><strong>Effective date: 7 October 2026</strong></p>
+<p>This policy covers Fasting Coach for iPhone and for Android. Both apps are designed so that your data never leaves your phone. This policy explains what the app handles and why. The short version: <strong>we collect nothing.</strong></p>
 <h3>What the app stores — on your device only</h3>
 <ul><li><strong>Fasting activity</strong>: your goals, fast start/end times, streaks, and history.</li><li><strong>Coaching data</strong>: your preferences (coaching style, quiet hours, message limits), the coach's notes about what kind of support works for you, and a log of the coaching decisions the app made.</li><li><strong>Conversations</strong>: chats with the coach are processed on-device and are not retained as transcripts beyond the active session.</li></ul>
-<p>All of this lives in local storage on your iPhone. It is never uploaded, synced, or shared. Deleting the app deletes it. "Start over" in Profile also erases it.</p>
+<p>All of this lives in local storage on your phone. It is never uploaded, synced, or shared. Deleting the app deletes it. "Start over" in Profile also erases it.</p>
 <h3>Health data</h3>
-<p>If you enable Health integration, Fasting Coach reads steps, active energy, sleep, and workouts from Apple Health <strong>on your device</strong>, read-only, solely so coaching can reflect your day. Health data is never written back, never transmitted anywhere, and is not used for any purpose other than the coaching shown to you. You can revoke access anytime in Settings → Privacy &amp; Security → Health.</p>
+<p>Health integration is off until you turn it on. If you enable it, Fasting Coach reads steps, active energy, sleep, and workouts <strong>on your device</strong>, read-only, solely so coaching can reflect your day:</p>
+<ul><li><strong>iPhone</strong>: read from Apple Health. You can revoke access anytime in Settings → Privacy &amp; Security → Health.</li><li><strong>Android</strong>: read from Health Connect. You can revoke access anytime by switching off Health Connect in Profile, or in Health Connect → App permissions → Fasting Coach.</li></ul>
+<p>Health data is never written back, never transmitted anywhere, never sold, never used for advertising, and is not used for any purpose other than the coaching shown to you. No person reads it. Fasting Coach's use of information received from Health Connect adheres to the Health Connect Permissions policy, including its Limited Use requirements.</p>
 <h3>On-device AI</h3>
-<p>Coaching decisions and messages are generated by Apple's on-device Foundation Models. Prompts and responses are processed locally on your iPhone.</p>
-<p>If a future version offers optional cloud reasoning via Apple's Private Cloud Compute, it will be <strong>off by default</strong>, clearly labelled in Profile, and used only with your explicit permission. Private Cloud Compute is designed by Apple so that data is not stored or made accessible to Apple.</p>
+<p>Coaching decisions and messages are generated by AI models that run on your phone, and prompts and responses are processed locally:</p>
+<ul><li><strong>iPhone</strong>: Apple Intelligence, using Apple's on-device Foundation Models.</li><li><strong>Android</strong>: Gemini Intelligence, using Google's on-device models.</li></ul>
+<p>If a future version offers optional cloud processing on either platform (for example Apple's Private Cloud Compute), it will be <strong>off by default</strong>, clearly labelled in Profile, used only with your explicit permission, and this policy will be updated first.</p>
 <h3>Microphone and speech</h3>
-<p>The voice coach uses the microphone only while you hold a conversation, and speech is transcribed on-device by Apple's speech frameworks. No audio or transcripts leave your iPhone.</p>
+<p>The voice coach uses the microphone only while you hold a conversation, and speech is transcribed on-device by the phone's built-in speech recognition (Apple's speech frameworks on iPhone, Android's on-device speech recognition on Android). No audio or transcripts leave your phone.</p>
 <h3>What we don't do</h3>
 <ul><li>No accounts or registration</li><li>No analytics, telemetry, or crash reporting</li><li>No advertising or tracking of any kind</li><li>No third-party SDKs</li><li>No network requests — the app works fully offline</li></ul>
 <h3>Notifications</h3>
-<p>Coaching reminders are local notifications scheduled on your device. You control them through iOS notification settings and the app's own quiet hours and message limits.</p>
+<p>Coaching reminders and live fasting progress are local notifications created on your device. You control them through your phone's notification settings (iOS Settings → Notifications, or Android Settings → Apps → Fasting Coach → Notifications) and the app's own quiet hours and message limits.</p>
+<h3>Deleting your data</h3>
+<p>Because nothing is stored outside your phone, there is no account or server copy to delete. Tap "Start over" in Profile, or uninstall the app, and all of its data is erased.</p>
 <h3>Children</h3>
 <p>Fasting Coach is not directed at children. Fasting is not appropriate for children; consult a doctor for any minor's dietary decisions.</p>
 <h3>Not medical advice</h3>
 <p>Fasting Coach offers lifestyle support, not medical advice, diagnosis, or treatment. Consult a qualified professional before making fasting decisions that affect your health, and stop fasting if you feel unwell.</p>
 <h3>Changes and contact</h3>
-<p>If this policy changes, the updated version will be published at the same URL with a new effective date. Questions: open an issue on the Fasting Coach GitHub repository or contact srinivas@rowdur.com.</p></div>
+<p>If this policy changes, the updated version will be published at the same URL with a new effective date. Questions: contact <a href="mailto:srinivas@rowdur.com">srinivas@rowdur.com</a>.</p></div>
   </div>
 </section>
 <footer><div class="wrap">
