@@ -7,9 +7,8 @@
 <meta property="og:title" content="Fasting Coach">
 <meta property="og:description" content="A calmer way to fast. An AI coach on your phone. Your data never leaves it.">
 <meta property="og:type" content="website">
-<!-- Smart App Banner: fill in the numeric App Store id once the app is listed, then uncomment.
-<meta name="apple-itunes-app" content="app-id=0000000000">
--->
+<!-- Smart App Banner: Safari on iPhone shows an "Open / Get" bar linking to the App Store -->
+<meta name="apple-itunes-app" content="app-id=6814461806">
 <link rel="icon" href="favicon.png" type="image/png">
 <title>Privacy Policy, Fasting Coach</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -221,6 +220,8 @@ nav .links a{text-decoration:none;color:var(--ink-muted)}
 /* Android shots are 9:16; wider frames give them the same height as the iPhone ones */
 .phone.android-only{width:366px}.pair.android-only .phone{width:305px}
 @media (max-width:520px){.pair.android-only .phone{width:269px}}
+.store.soon{background:transparent;color:var(--ink-muted);border:1px dashed var(--stone);box-shadow:none;cursor:default}
+.store.soon:hover{transform:none;box-shadow:none}
 </style>
 
 </head>
@@ -271,5 +272,10 @@ nav .links a{text-decoration:none;color:var(--ink-muted)}
   <span>&copy; 2026 Fasting Coach. Your data stays on your device.</span>
   <span><a href="privacy.html">Privacy policy</a> &nbsp;&middot;&nbsp; <a href="support.html">Support</a> &nbsp;&middot;&nbsp; Not medical advice. Talk to a doctor before changing how you eat.</span>
 </div></footer>
+<script>
+// On iPhone and iPad, "Get the app" goes straight to the App Store
+(function(){var ios=/iPhone|iPad|iPod/.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
+if(ios)document.querySelectorAll('nav .cta').forEach(function(a){a.href='https://apps.apple.com/app/fasting-coach/id6814461806';a.target='_blank';a.rel='noopener'})})();
+</script>
 </body>
 </html>
