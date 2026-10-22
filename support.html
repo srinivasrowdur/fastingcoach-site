@@ -130,8 +130,11 @@ section{padding-block:clamp(72px,10vw,140px)}
 @keyframes blink{to{opacity:0}}
 
 /* progress pair */
-.pair{display:flex;gap:20px;justify-content:center;flex-wrap:wrap}
-.pair .phone{width:250px}
+.pair{display:flex;gap:20px;justify-content:center}
+/* the two phones always sit side by side and shrink together to fit the column */
+.pair .phone{flex:1 1 0;min-width:0;max-width:250px}
+.moment.pairs{grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr)}
+@media (max-width:820px){.moment.pairs{grid-template-columns:1fr}}
 
 /* promises */
 .promises{background:var(--card)}
@@ -165,7 +168,7 @@ footer a{color:var(--ink-muted);text-decoration:none}
   .grid{grid-template-columns:1fr 1fr}
   .stage{min-height:0}
 }
-@media (max-width:520px){.grid{grid-template-columns:1fr}.pair .phone{width:220px}}
+@media (max-width:520px){.grid{grid-template-columns:1fr}.pair{gap:12px}}
 @media (prefers-reduced-motion:reduce){
   .js .rv{opacity:1;transform:none;transition:none}
   .bub{opacity:1;transform:none;transition:none}
@@ -213,13 +216,12 @@ nav .links a{text-decoration:none;color:var(--ink-muted)}
 .plat button{border:0;background:none;color:var(--ink-muted);border-radius:999px;padding:6px 14px;font:500 13px var(--sans);cursor:pointer}
 .plat button[aria-pressed=true]{background:var(--primary);color:var(--on-primary)}
 .hero-phone{display:flex;flex-direction:column;align-items:center;gap:16px}
-.pairwrap{display:flex;flex-direction:column;align-items:center;gap:16px}
-.pairwrap>.pair{align-self:stretch}
-.shots{display:grid;place-items:center}.shots>*{grid-area:1/1}
+.pairwrap{display:flex;flex-direction:column;align-items:center;gap:16px;min-width:0;width:100%}
+.pairwrap>.shots{align-self:stretch}.shots>.pair{justify-self:stretch}
+.shots{display:grid;grid-template-columns:minmax(0,1fr);place-items:center}.shots>*{grid-area:1/1}
 [data-plat=android] .ios-only,[data-plat=ios] .android-only{visibility:hidden}
 /* Android shots are 9:16; wider frames give them the same height as the iPhone ones */
-.phone.android-only{width:366px}.pair.android-only .phone{width:305px}
-@media (max-width:520px){.pair.android-only .phone{width:269px}}
+.phone.android-only{width:366px}.pair.android-only .phone{max-width:305px}
 .store.soon{background:transparent;color:var(--ink-muted);border:1px dashed var(--stone);box-shadow:none;cursor:default}
 .store.soon:hover{transform:none;box-shadow:none}
 /* iPhone Duo */
