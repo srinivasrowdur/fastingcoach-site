@@ -232,6 +232,20 @@ nav .links a{text-decoration:none;color:var(--ink-muted)}
 .duo{max-width:880px;margin:0 auto;border-radius:34px;background:#0d100e;padding:10px;box-shadow:var(--shadow-phone)}
 .duo img{display:block;width:100%;height:auto;border-radius:26px}
 @media (max-width:520px){.duo{border-radius:22px;padding:6px}.duo img{border-radius:17px}}
+/* drifting mist over the lake: two soft bands crossing slowly; off for reduced motion */
+:root{--mist-c:rgba(255,255,255,.9)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--mist-c:rgba(205,222,216,.22)}}
+:root[data-theme="dark"]{--mist-c:rgba(205,222,216,.22)}
+/* .scene matches the lake picture (1032x1200, width-fitted, centred at 38%) so mist sits on the water at every screen size */
+.lake{container-type:size}
+.scene{position:absolute;left:0;width:100%;aspect-ratio:1032/1200;top:calc((100cqh - 100cqw * 1200 / 1032) * .38);overflow:hidden}
+.mist{position:absolute;left:0;top:35%;width:70%;height:14%;pointer-events:none;opacity:0;will-change:transform,opacity;
+  background:radial-gradient(42% 48% at 34% 56%,var(--mist-c),transparent 72%),radial-gradient(38% 42% at 66% 46%,var(--mist-c),transparent 70%);
+  animation:drift 42s linear infinite}
+.mist.m2{top:42.5%;width:55%;height:10%;animation-duration:58s;animation-delay:-29s}
+.mist.m3{top:38.5%;width:45%;height:9%;animation-duration:71s;animation-delay:-55s}
+@keyframes drift{0%{transform:translateX(-100%);opacity:0}12%{opacity:1}88%{opacity:1}100%{transform:translateX(190%);opacity:0}}
+@media (prefers-reduced-motion:reduce){.mist{display:none}}
 </style>
 
 </head>
@@ -242,7 +256,7 @@ nav .links a{text-decoration:none;color:var(--ink-muted)}
 </div></nav>
 
 <header class="hero" id="top">
-  <div class="lake" data-speed=".09"></div>
+  <div class="lake" data-speed=".09"><div class="scene"><i class="mist m1"></i><i class="mist m2"></i><i class="mist m3"></i></div></div>
   <div class="wrap">
     <div class="hero-copy">
       <p class="over">For iPhone and Android</p>
